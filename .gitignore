@@ -1,0 +1,14 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+dist/
+CameraCapture.spec
+
+# Local camera output
+Pictures/
+*.jpg
+*.jpeg
+*.png
