@@ -1,0 +1,93 @@
+QPushButton#openCameraButton {
+    background-color: #2e9f5b;
+    color: white;
+    font-weight: bold;
+    min-height: 42px;
+    border: 1px solid #267c48;
+    border-radius: 6px;
+}
+
+QPushButton#openCameraButton:hover {
+    background-color: #1f743f;
+    color: white;
+}
+
+QPushButton#openCameraButton:pressed {
+    background-color: #1d6b3c;
+    color: white;
+}
+
+QPushButton#openCameraButton:disabled {
+    background-color: #8b9299;
+    color: #e1e4e7;
+    border-color: #737a81;
+}
+
+QPushButton#stopCameraButton {
+    background-color: #c94b4b;
+    color: white;
+    font-weight: bold;
+    min-height: 42px;
+    border: 1px solid #9d3838;
+    border-radius: 6px;
+}
+
+QPushButton#stopCameraButton:hover {
+    background-color: #963737;
+    color: white;
+}
+
+QPushButton#stopCameraButton:pressed {
+    background-color: #8c3030;
+    color: white;
+}
+
+QPushButton#stopCameraButton:disabled {
+    background-color: #8b9299;
+    color: #e1e4e7;
+    border-color: #737a81;
+}
+
+QPushButton#capturePhotoButton {
+    background-color: #2f80ed;
+    color: white;
+    font-weight: bold;
+    min-height: 42px;
+    border: 1px solid #2568bf;
+    border-radius: 6px;
+}
+
+QPushButton#capturePhotoButton:hover {
+    background-color: #2468c5;
+    color: white;
+}
+
+QPushButton#capturePhotoButton:pressed {
+    background-color: #1d559f;
+    color: white;
+}
+
+QPushButton#capturePhotoButton:disabled {
+    background-color: #8b9299;
+    color: #e1e4e7;
+    border-color: #737a81;
+}
+
+QLabel#cameraStatus {
+    color: #111111;
+}
+
+QLabel#cameraStatus[statusLevel="success"] {
+    color: #16803c;
+}
+
+QLabel#cameraStatus[statusLevel="error"] {
+    color: #c62828;
+}
+
+QLabel#cameraPreview {
+    background-color: #20252b;
+    color: #c8d0d9;
+}
+
+
