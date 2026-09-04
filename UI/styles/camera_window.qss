@@ -73,6 +73,18 @@ QPushButton#capturePhotoButton:disabled {
     border-color: #737a81;
 }
 
+QLabel#cameraStatus {
+    color: #111111;
+}
+
+QLabel#cameraStatus[statusLevel="success"] {
+    color: #16803c;
+}
+
+QLabel#cameraStatus[statusLevel="error"] {
+    color: #c62828;
+}
+
 QLabel#cameraPreview {
     background-color: #20252b;
     color: #c8d0d9;
