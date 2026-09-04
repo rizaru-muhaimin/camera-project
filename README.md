@@ -7,6 +7,7 @@ Desktop camera application for Python 3.11.9, PySide6, OpenCV, and pytelicam.
 ```text
 app.py                      # Application entry point
 UI/camera_window.py         # PySide6 user interface
+UI/styles/camera_window.qss # UI theme and component styles
 UIServices/camera_service.py # Camera discovery and capture backends
 cameraSDK/                  # Local pytelicam SDK wheel only
 assets/camera.svg           # Application camera icon

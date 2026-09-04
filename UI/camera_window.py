@@ -24,6 +24,11 @@ from PySide6.QtWidgets import (
 from UIServices import CameraDescriptor, CameraService, list_connected_cameras
 
 
+def load_stylesheet() -> str:
+    style_path = Path(__file__).resolve().parent / "styles" / "camera_window.qss"
+    return style_path.read_text(encoding="utf-8")
+
+
 class CameraWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
@@ -39,8 +44,13 @@ class CameraWindow(QMainWindow):
 
         self.camera_select = QComboBox()
         self.refresh_button = QPushButton("Refresh")
-        self.open_button = QPushButton("Open camera")
-        self.close_button = QPushButton("Stop camera")
+        self.open_button = QPushButton("Open Camera")
+        self.close_button = QPushButton("Stop Camera")
+        self.open_button.setObjectName("openCameraButton")
+        self.close_button.setObjectName("stopCameraButton")
+        self.close_button.setEnabled(False)
+        for button in (self.refresh_button, self.open_button, self.close_button):
+            button.setMinimumHeight(42)
         self.folder_edit = QLineEdit()
         self.folder_button = QPushButton("Browse")
         self.prefix_edit = QLineEdit("photo")
@@ -50,11 +60,16 @@ class CameraWindow(QMainWindow):
         self.quality_slider.setRange(1, 100)
         self.quality_slider.setValue(95)
         self.quality_value = QLabel("95")
-        self.capture_button = QPushButton("Capture photo")
+        self.capture_button = QPushButton("Capture Photo")
+        self.capture_button.setObjectName("capturePhotoButton")
+        self.capture_button.setMinimumHeight(42)
+        self.capture_button.setEnabled(False)
         self.preview = QLabel("No camera connected")
+        self.preview.setObjectName("cameraPreview")
         self.status = QLabel("Ready")
 
         self.build_ui()
+        self.setStyleSheet(load_stylesheet())
         self.load_settings()
         self.refresh_cameras()
         self.refresh_button.clicked.connect(self.refresh_cameras)
@@ -69,7 +84,6 @@ class CameraWindow(QMainWindow):
     def build_ui(self) -> None:
         self.preview.setAlignment(Qt.AlignCenter)
         self.preview.setMinimumSize(0, 0)
-        self.preview.setStyleSheet("background: #20252b; color: #c8d0d9;")
         self.preview.setSizePolicy(
             QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding
         )
@@ -146,6 +160,9 @@ class CameraWindow(QMainWindow):
             return
         if self.camera.open(camera):
             self.timer.start(33)
+            self.open_button.setEnabled(False)
+            self.close_button.setEnabled(True)
+            self.capture_button.setEnabled(True)
             self.status.setText(f"{camera.display_name} connected")
         else:
             detail = self.camera.last_error or "camera access failed"
@@ -154,6 +171,8 @@ class CameraWindow(QMainWindow):
     def close_camera(self) -> None:
         self.timer.stop()
         self.camera.close()
+        self.open_button.setEnabled(True)
+        self.close_button.setEnabled(False)
         self.current_frame = None
         self.preview.clear()
         self.preview.setText("No camera connected")
