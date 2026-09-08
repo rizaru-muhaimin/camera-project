@@ -1,0 +1,27 @@
+Fitur yang akan ditambahkan di sini
+Juga ditambahkan ke GUI robot berkaki empat yang sedang dibuat oleh Suryo.
+
+Ketentuan
+
+Menggunakan YOROX.
+Fitur pembelajaran dan fitur untuk memasukkan gambar aktual serta menampilkan hasilnya dibuat dalam file yang berbeda.
+Untuk GUI, cukup dibuat layar yang memungkinkan pengujian fungsi untuk sementara.
+Model yang telah dilatih melalui fitur pembelajaran dikelola dalam format JSON.
+
+
+Gambaran layar pembelajaran
+
+Memilih model dasar
+Mendaftarkan gambar untuk pembelajaran
+Menentukan lokasi penyimpanan model
+Memulai pembelajaran
+
+Gambaran layar deteksi
+
+Memilih model
+Memilih gambar
+Menampilkan hasil deteksi
+Setelah fitur selesai
+
+Fitur_Pembelajaran.py
+Fitur_Deteksi.py
